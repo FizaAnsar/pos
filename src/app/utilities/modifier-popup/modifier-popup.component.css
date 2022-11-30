@@ -1,0 +1,16 @@
+.modal-body{
+    text-align: center;
+}
+.modifierDiv{
+    display:inline-block;
+    margin:auto;
+}
+.modifiers{
+    display:grid;
+    grid-template-columns: 1fr;
+    height:50px;
+    width:126px;
+    margin:5px;
+    border: none;
+    background-color: antiquewhite;
+}

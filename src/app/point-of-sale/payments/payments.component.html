@@ -1,0 +1,217 @@
+<!-- ///////////////////////////////////Details start /////////////////////////////////////////////////////////-->
+<div class="mainbody">
+
+
+<div class="section-name">
+    <div class="name">Details</div>
+    <div class="line">
+        <hr>
+    </div>
+</div>
+<div class="pdtail">
+    <div class="detailTable">
+        <div class="menuText">
+            Menu Total
+        </div>
+        <hr class="detailLine"/>
+        <div class="detailPrice ">
+            Rs:{{menuTotal}}
+        </div>
+    </div>
+    <div class="detailTable">
+        <div class="menuText">
+            Discount (opening)
+        </div>
+        <hr class="detailLine"/>
+        <div class="detailPrice ">
+            Rs:{{Discount}}
+        </div>
+    </div>
+    <div class="detailTable">
+        <div class="menuText">
+            Service Charges (5%)
+        </div>
+        <hr class="detailLine"/>
+        <div class="detailPrice ">
+            Rs:{{serviceCharges}}
+        </div>
+    </div>
+    <div class="detailTable">
+        <div class="menuText">
+           GST/VAT(17%)
+        </div>
+        <hr class="detailLine"/>
+        <div class="detailPrice ">
+            Rs:{{GST}}
+        </div>
+    </div>
+</div>
+<!-- ///////////////////////////////////Details end/////////////////////////////////////////////////////////-->
+<!-- ///////////////////////////////////Bill Start/////////////////////////////////////////////////////////-->
+<div class="section-name">
+    <div class="name">Bill</div>
+    <div class="line">
+        <hr>
+    </div>
+</div>
+<div class="bill d-flex justify-content-around ">
+    <div class="totalBill">
+        <div class="billText">
+            Total Bill
+        </div>
+        <div class="amountfromcart am">
+            {{totalBill}}
+        </div>
+    </div>
+    <div class="amountTendered">
+        <div class="billText">
+            Amount Tendered
+        </div>
+        <input matInput type="number" 
+        class="amountYouEnter text-center am" value="{{amountTender || input}}" />
+        <!-- <div class="amountYouEnter text-center am" >
+            {{amountTender || input}}
+        </div> -->
+    </div>
+    <div class="change">
+        <div class="billText">
+            Changed
+        </div>
+        <div class="amountChanged am">
+           {{changeValue}}
+        </div>
+    </div>
+</div>
+<!-- ///////////////////////////////////Bill End/////////////////////////////////////////////////////////-->
+<!-- ///////////////////////////////////Collection Start/////////////////////////////////////////////////////////-->
+<div class="section-name">
+    <div class="name">Collection</div>
+    <div class="line">
+        <hr>
+    </div>
+</div>
+<div class="collection d-flex justify-content-around">
+    <div class="calculation d-flex justify-content-between">
+        <router-outlet name="calculate"></router-outlet>
+        <div class="calculator">
+            <div class="number d-flex ">
+                <div class=" n n1 align-self-center" (click)="pressNum('7')">
+                    7
+                </div>
+                <div class="n n2 align-self-center" (click)="pressNum('8')">
+                    8
+                </div>
+                <div class=" n n3 align-self-center" (click)="pressNum('9')">
+                    9
+                </div>
+            </div>
+            
+            <div class="number d-flex">
+                <div class=" n n1" (click)="pressNum('4')">
+                    4
+                </div>
+                <div class="n n2" (click)="pressNum('5')">
+                    5
+                </div>
+                <div class=" n n3" (click)="pressNum('6')">
+                    6
+                </div>
+            </div>
+            <div class="number d-flex">
+                <div class=" n n1" (click)="pressNum('1')">
+                    1
+                </div>
+                <div class="n n2" (click)="pressNum('2')">
+                    2
+                </div>
+                <div class=" n n3" (click)="pressNum('3')">
+                    3
+                </div>
+            </div>
+            <div class="number d-flex">
+                <div class=" n n1" (click)="pressNum('.')">
+                    .
+                </div>
+                <div class="n n2" value="0" (click)="pressNum('0')">
+                    0
+                </div>
+                <div class=" n n3">
+                    >
+                </div>
+            </div>
+        </div>
+        <div class="extraSumBtns">
+            <div class="amountNumb d-flex justify-content-between">
+                <div class="amountN" (click)="fifties()">
+                    50
+                </div>
+                <div class="amountN" (click)="oneHundereds()">
+                    100
+                </div>
+            </div>
+            <div class="amountNumb d-flex justify-content-between">
+                <div class="amountN" (click)="fiveHundereds()">
+                    500
+                </div>
+                <div class="amountN" (click)="oneThounands()">
+                    1000
+                </div>
+            </div>
+            <div class="max">
+                <div class="maxn" (click)="fiveThounands()">
+                    5000
+                </div>
+                <div class="maxn" (click)="max()">
+                    MAX
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="diffButtons">
+        <div class="emp">
+            ENT
+        </div>
+        <div class="emp">
+            SPLIT PAYMENT
+        </div>
+        <div class="emp">
+            LOYALTY CARD
+        </div>
+        <div class="emp">
+            PARTIAL PAYMENT
+        </div>
+        <div class="emp">
+            DISCOUNT
+        </div>
+        <div class="emp">
+            PUT ON TAB
+        </div>
+    </div>
+</div>
+<!-- ///////////////////////////////////Collection End/////////////////////////////////////////////////////////-->
+<!-- ///////////////////////////////////nvoiceStart/////////////////////////////////////////////////////////-->
+<div class="section-name">
+    <div class="name">Collection</div>
+    <div class="line">
+        <hr>
+    </div>
+</div>
+<div class="invoices d-flex justify-content-around">
+    <div class="btnInvoice maxn">
+        INVOICE
+    </div>
+    <div class="paymentMethod d-flex justify-content-center">
+        <div class="cash amountN">
+            CASH
+        </div>
+        <div class="cards amountN">
+            CARD
+        </div>
+    </div>
+    <div class="finalize maxn bg-primary text-light" (click)="gotoReserve()">
+        <div class="fSALE" >
+            FINISH SALE
+        </div>
+    </div>
+</div>
+</div>

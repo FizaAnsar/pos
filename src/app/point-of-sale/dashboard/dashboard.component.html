@@ -1,0 +1,137 @@
+<!--//////////////////////////////////// categories start /////////////////////////////////////////////////////////-->
+
+<div class="section-name">
+    <div class="name">Categories</div>
+    <div class="line">
+        <hr>
+    </div>
+</div>
+
+<owl-carousel-o [options]="customOptions">
+
+    <ng-container *ngFor="let slide of categories">
+        <ng-template carouselSlide [id]="slide.sectionId" id="food">
+
+            <button class="slide_item" [attr.aria-label]="slide.sectionName" value="{{slide.sectionId}}"
+                (click)="displaySubCategory(category.value)" name="{{slide.sectionName}}" #category [ngClass]="{
+                              'val24':category.value=='24', 'val24Active' :slide.hasMenus==true && slide.sectionId=='24',
+                              'val25':category.value=='25', 'val25Active' :slide.hasMenus==true && slide.sectionId=='25',
+                              'val26':category.value=='26', 'val26Active':slide.hasMenus==true && slide.sectionId=='26',
+                              'val27':category.value=='27', 'val27Active' :slide.hasMenus==true && slide.sectionId=='27',
+                              'val28':category.value=='28', 'val28Active' :slide.hasMenus==true && slide.sectionId=='28',
+                              'val29':category.value=='29', 'val29Active':slide.hasMenus==true && slide.sectionId=='29',
+                              'val30':category.value=='30', 'val30Active':slide.hasMenus==true && slide.sectionId=='30',
+                              'val31':category.value=='31', 'val31Active':slide.hasMenus==true && slide.sectionId=='31',
+                              'val32':category.value=='32', 'val32Active':slide.hasMenus==true && slide.sectionId=='32',
+                              'val33':category.value=='33', 'val33Active':slide.hasMenus==true && slide.sectionId=='33',
+                              'val34':category.value=='34', 'val34Active':slide.hasMenus==true && slide.sectionId=='34',
+                              'val35':category.value=='35', 'val35Active':slide.hasMenus==true && slide.sectionId=='35',
+                              'val36':category.value=='36', 'val36Active':slide.hasMenus==true && slide.sectionId=='36',
+                              'val37':category.value=='37', 'val37Active':slide.hasMenus==true && slide.sectionId=='37',
+                              'val38':category.value=='38', 'val38Active':slide.hasMenus==true && slide.sectionId=='38',
+                              'val39':category.value=='39', 'val39Active':slide.hasMenus==true && slide.sectionId=='39',
+                              'val40':category.value=='40', 'val40Active':slide.hasMenus==true && slide.sectionId=='40',
+                              'val41':category.value=='41', 'val41Active' :slide.hasMenus==true && slide.sectionId=='41'
+                              }">
+                {{slide.sectionName}}
+                <!-- (click)="getCategoryId(category.value)"  -->
+            </button>
+        </ng-template>
+    </ng-container>
+
+</owl-carousel-o>
+
+<!--//////////////////////////////////// categories end /////////////////////////////////////////////////////////-->
+<!--//////////////////////////////////// subcategories start /////////////////////////////////////////////////////////-->
+<div class="section-name">
+    <div class="name">Sub Categories</div>
+    <div class="line">
+        <hr>
+    </div>
+</div>
+
+<div class="subCategoryBtn">
+    <div class="loop" *ngFor="let subCat of subcategory">
+        <button class="slide_item category_item" value="{{subCat.categoryId}}" (click)="displayProducts(subCate.value)"
+            #subCate>
+            {{subCat.categoryName}}
+        </button>
+    </div>
+</div>
+
+<!--//////////////////////////////////// subcategories end /////////////////////////////////////////////////////////-->
+<!--//////////////////////////////////// main-menu start /////////////////////////////////////////////////////////-->
+<div class="section-name">
+    <div class="name">Products</div>
+    <div class="line">
+        <hr>
+    </div>
+</div>
+
+<div class=" listsContainer">
+
+    <div class="loop" *ngFor="let menu of mainMenu">
+
+        <button class="box_item" id="btn"
+            (click)="MenuItemClicked({itemId:menu.menuId,itemName:menu.menuName,itemPrice:menu.menuPrice,itemQuantity:menu.quantity},{itemModifiers:menu.modifiers,assignModifier:menu.assignModifier})"
+            (click)="addQuantity(menu)" data-bs-toggle="modal" data-bs-target="#modifierModel">
+            <!-- value="{{menu.quantity}}"
+                #notify -->
+            <!-- (click)="forQuantity(menu)" -->
+            <!-- data-bs-toggle="modal"
+            data-bs-target="#modifierModel" -->
+            {{menu.menuName}}
+            <div class="pricemenu">
+                {{menu.menuPrice}}
+
+            </div>
+            <div class="qtymenu" *ngIf="menu.quantity!=0">
+                {{menu.quantity}}
+
+            </div>
+
+
+        </button>
+
+    </div>
+</div>
+<!--//////////////////////////////////// main-menu end /////////////////////////////////////////////////////////-->
+<!--//////////////////////////////////// modifier pop up start /////////////////////////////////////////////////////////-->
+
+<!-- Modals -->
+<div class="modifierContainer">
+
+    <div class="modal fade" id="modifierModel" tabindex="-1" aria-labelledby="modifierModelLabel" aria-hidden="true"
+     >
+        <div class="modal-dialog modal-dialog-centered"  >
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modifierModelLabel">Modifiers</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" >
+                    <div class="modifierDiv">
+                        <div class="mbtns modifierDiv" *ngFor="let modifier of modifiers">
+                            <button class="modifiers"  (click)="orderDetails()" (click)="selectedModifiers(modifier)">
+    
+                                <!-- (click)="sendSelectedModifiers(modifier) " -->
+                                <div class="modifierName">
+    
+                                    {{modifier.modifierName}}
+                                </div>
+                                <div class="modifierPrice">
+                                    {{modifier.modifierPrice}}
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Done</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//////////////////////////////////// modifier pop up end /////////////////////////////////////////////////////////-->

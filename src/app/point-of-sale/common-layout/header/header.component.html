@@ -1,0 +1,143 @@
+<nav class="navbar navbar-expand-lg border-bottom text-center">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]= "['/point-of-sale',{
+      outlets:{'pos':['dashboard']}  
+    }]">
+      <!-- [routerLink]= "['/default',{
+        outlets:{'pos':['dashboard']}
+       
+      }]" -->
+      <!-- [routerLink]=[{outlets:{main:['dashboard']}}] -->
+      <h1>POS APP</h1>
+    </a>
+    <button class="navbar-toggler bg-light" type="button" (click)="navbarCollapsed = !navbarCollapsed"
+      [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
+    </button>
+    <div class="collapse navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center align-items-center">
+        <li class="nav-item">
+          <button type="button" class="btn btn1 btn-large">
+            <div class="mx-2">
+              <i class="fa-solid fa-plate-wheat"></i>
+            </div>
+            <div>
+              Menu
+            </div>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn2 btn-large
+                ">
+            <div class="mx-2">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <div>
+              Modifiers
+            </div>
+          </button>
+        </li>
+
+
+        <li ngbDropdown class="nav-item dropdown orderTaker">
+
+          <a class="nav-link dropdown-toggle order" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="true" ngbDropdownToggle>
+            Order Taker
+          </a>
+          <ul class="dropdown-menu" ngbDropdownMenu>
+            <li><a class="dropdown-item" href="#" ngbDropdownItem>Mohsin</a></li>
+            <li><a class="dropdown-item" href="#" ngbDropdownItem>Raffey</a></li>
+            <li><a class="dropdown-item" href="#" ngbDropdownItem>Hassan</a></li>
+          </ul>
+        </li>
+        <li class="nav-item ">
+
+
+          <input class="form-control me-2 cover-table" type="text" placeholder="Cover Table">
+
+        </li>
+
+        <li class="nav-item end">
+          <div class="cashier">Ali Cashier</div>
+          <!-- Off Canvas SideBar Toggle -->
+
+          <button class="sidebartoggle" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+            aria-controls="offcanvasExample">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </button>
+
+        </li>
+
+      </ul>
+
+
+
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+<!-- Side bar canvas -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <a [routerLink]="'pos'">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">POS System</h5>
+    </a>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="sidebar">
+      <ul>
+
+
+        <li>
+          <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+
+        </li>
+
+
+        <li>
+          <a href="#"><i class="fa-solid fa-tags"></i> Discounts</a>
+
+        </li>
+        <li>
+          <a href="#"> <i class="fa-solid fa-hand-holding-medical"></i>Feedback</a>
+
+        </li>
+        <li>
+          <a href="#"> <i class="fa-solid fa-book-open-reader"></i> Customers</a>
+
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-boxes-packing"></i> Suppliers</a>
+
+        </li>
+
+        <li>
+          <a href="#"><i class="fa-solid fa-tag"></i> Others</a>
+
+        </li>
+        <li>
+          <a href="#"> <i class="fa-solid fa-table"></i> Tables</a>
+
+        </li>
+        <li>
+          <a href="#"> <i class="fa-solid fa-life-ring"></i> Support</a>
+
+        </li>
+        <li>
+          <a href="#" targer="_blank" (click)="logout()" data-toggle="tooltip" data-placement="right" title="SignOut">
+            <span class="icon"><i class="fa fa-arrow-right-from-bracket"></i></span>
+            <span class="title">sign out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>

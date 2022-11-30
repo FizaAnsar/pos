@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="text-center">
+            <h1>Login</h1>
+          </div>
+          <form #usersignin="ngForm" (ngSubmit)="signIn(usersignin.value)" [formGroup]="loginForm">
+            <div class="mb-1">
+              <label for="email" class="form-label">Username</label>
+              <div class="input-field" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required','username')">
+                <span class="fa fa-user"></span>
+                <input type="text" placeholder="Username" name="username" ngModel formControlName="username">
+              </div>
+            </div>
+            <small *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
+              class="text-danger">Username is Required</small>
+              <!-- <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('pattern','email')"
+              class="text-danger">Enter Valid Email</small> -->
+  
+            <div class="mb-1">
+              <label for="password" class="form-label">Password</label>
+              <div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+                <span class="fa fa-lock"></span>
+                <input [type]="type" placeholder="Enter Password" id="password" name="password" ngModel
+                  formControlName="password">
+                <span class="fa {{eyeIcon}}" (click)="hideshow()"></span>
+              </div>
+            </div>
+            <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"
+            class="text-danger">Password is Required</small>
+            <!-- <small *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('pattern','password')"
+            class="text-danger">Password should contains <b>upercase</b>,<b>lowercase</b>,<b>number</b> <br/>and minimum <b>8</b> characters</small> -->
+            <a >
+              <!-- [routerLink]= "['/default',{
+                outlets:{'pos':['dashboard']}
+               
+              }]" -->
+              <button type="submit" class="btn btn-primary">Login</button>
+            </a>
+          </form>
+          <!-- <a routerLink="/signup" class="pt-4">New User ? Sign up</a> -->
+        </div>
+      </div>
+    </div>
+  
+  </div>

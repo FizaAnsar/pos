@@ -1,0 +1,237 @@
+<section class="containers m-2">
+  <div class="searchmenu">
+      <div class="order_Details">
+          <div class="d-flex justify-content-between">
+              <div class="order_no">
+                  Order No: 123
+
+              </div>
+              <div class="table_no">
+                  Table No: 12
+              </div>
+              <div class="kitchen_menus">
+                  Kitchen Ticket: 98
+              </div>
+          </div>
+      </div>
+      <div class="inputs">
+        <div>
+
+            <!-- <input type="text" placeholder="Menu Items" class="menuItem "> -->
+            <form>
+                <mat-form-field class="menuItem " [formGroup]="formGroup">
+                    <input matInput type="text" [matAutocomplete]="auto" formControlName="menuItems"
+                        class="menuItem2" placeholder="Menu Items" value="{{menuCodeName}}" id="1"
+                        (keyup)="handlekeyuponDropdownforInput($event)" />
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let menus of filteredOptions" value="{{menus}}" #matDropdown
+                            (onSelectionChange)="handlekeyuponDropdown(matDropdown.value)">
+                            {{menus}}
+
+                        </mat-option>
+
+                    </mat-autocomplete>
+
+                </mat-form-field>
+            </form>
+        </div>
+        <div>
+            <mat-form-field class="menuItem">
+                <input matInput type="text" formControlName="menuItems" class="menuItem2" placeholder="Code"
+                    maxlength="3" #menuCode value="{{menuCodeName}}"
+                    (keyup)="handleKeyUpforMenuCode($event,menuCode.value)" id="2" />
+                <!-- (input)="getMenuCode(menuCode.value)" -->
+            </mat-form-field>
+
+        </div>
+        <div>
+            <mat-form-field class="menuItem ">
+                <input matInput type="number" formControlName="menuItems" class="menuItem2" placeholder="Qty"
+                    min="0" max="100"  #searchQuantity
+                    (keyup)="handleKeyUpforaddSearchItemsinCart($event,searchQuantity.value)" id="3" />
+
+            </mat-form-field>
+
+        </div>
+    </div>
+
+     
+  </div>
+  <div class="mainDiv">
+
+      <div class="scrollable">
+          <div class="alert alert-info" *ngIf=" allmenus.length === 0"> Your Cart is Empty</div>
+          <!-- <div class="alert alert-info" > Your Cart is Empty</div>
+           *ngIf="cartItems.length === 0" -->
+          <!-- new Design -->
+          <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" *ngIf=" allmenus.length">
+
+              <ngb-panel *ngFor="let cartItem of allmenus">
+                  <ng-template ngbPanelTitle>
+                      <div class="d-flex w-100 bg-light item">
+                          <div class="qty">
+                              {{cartItem.menuQuantity}}
+                              <!-- {{cartItem.modifierQuantity}} -->
+                          </div>
+                          <div class="order-name">
+                              {{cartItem.menuName}}
+                              <!-- {{cartItem.modifierName}} -->
+                          </div>
+                          <div class="price">
+                              {{(cartItem.menuPrice * cartItem.menuQuantity)}}
+                          </div>
+                      </div>
+                  </ng-template>
+                  <ng-template ngbPanelContent class="order-acordian">
+                      <div class="d-flex w-100">
+                          <div class="crud d-flex  w-50">
+                              <div class="plus m-2" (click)="menuInc(cartItem)">
+                                  <button>
+                                      <i class="fa-solid fa-circle-plus text-danger"></i>
+                                  </button>
+                              </div>
+                              <div class="minus m-2" (click)="menuDec(cartItem)">
+                                  <button>
+                                      <i class="fa-solid fa-circle-minus text-danger"></i>
+                                  </button>
+                              </div>
+                              <div class="delete m-2" (click)="removeMenuItem(cartItem)">
+                                  <button>
+                                      <i class="fa-solid fa-trash-can text-danger"></i>
+
+                                  </button>
+                              </div>
+                          </div>
+                          <div class="modification w-50 d-flex justify-content-end">
+                              <div class="m-2">
+                                  <button class="mx-1">
+                                      <!-- <i class="fa-regular fa-chess-pawn text-primary"></i>
+                                      <i class="fa-solid fa-chess-pawn text-primary"></i> -->
+                                      <img src="../../../../assets/modifiers.svg" alt="modifiers" class="modifiersImg">
+
+                                  </button>
+
+
+                              </div>
+                              <div class="note m-2">
+                                  <button (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+                                      aria-controls="collapseExample" class="show_note">
+                                      <i class="fa-solid fa-pen text-primary"></i>
+                                  </button>
+
+                              </div>
+                          </div>
+                      </div>
+                      <div class="note-collapse">
+                          <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+                              <div class="note_card">
+                                  <span class="text-center">Add Special Notes</span>
+                                  <textarea class="form-control" id="note" rows="3" #note
+                                  (input)="changenotevalue(note.value)"
+                                  ></textarea>
+                                  <!-- <button class="btn btn-sm bg-primary text-light m-2"
+                                      (click)="changenotevalue(note.value)">OK</button> -->
+                              </div>
+                          </div>
+                      </div>
+                      <!-- modifiers -->
+                      <div class="note-item  ">
+                          <div class="modifierDiv2 d-flex w-100" >
+                              <div class="text w-50 m-2 ">
+                                  {{cartItem.modifierName}}
+                              </div>
+                              <div class="crud d-flex  w-50">
+                                  <div class="plus m-2" (click)=" modInc(cartItem)">
+                                      <button>
+                                          <i class="fa-solid fa-circle-plus text-danger"></i>
+                                      </button>
+                                  </div>
+                                  <div class="modifierText">
+                                      {{cartItem.modifierQuantity}}
+                                  </div>
+                                  <div class="minus m-2"(click)="modDec(cartItem)">
+                                      <button >
+                                          <i class="fa-solid fa-circle-minus text-danger"></i>
+                                      </button>
+                                  </div>
+                                  
+                              </div>
+                              <div class="modify w-50 d-flex justify-content-end">
+                                  <div class="note-item-price m-2 ">
+                                      {{(cartItem.modifierPrice * cartItem.modifierQuantity)}}
+                                  </div>
+                                  <div class="note-item-delete m-2">
+                                      <i class="fa-solid fa-circle-xmark text-danger"></i>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- modeifier end -->
+                      <!-- notevalue start -->
+                      <div class="noteValue d-flex" *ngIf="noteVAlue">
+                          <div class="noteText">
+                              <table>
+                                  <tr class="justify-content-between">
+                                      <td>
+                                          <b>Note</b>
+                                      </td>
+                                      <td>
+                                         {{noteVAlue}}
+
+
+                                      </td>
+                                  </tr>
+                              </table>
+
+                          </div>
+                      </div>
+                  </ng-template>
+              </ngb-panel>
+
+          </ngb-accordion>
+
+          
+
+      </div>
+
+      <!-- another design -->
+
+      <div class="bill d-flex justify-content-between">
+          <div class="subtotal">
+              <span>SubTotal</span>
+              <div class="price1">
+                  {{cartTotal | currency:"":""}}
+              </div>
+          </div>
+          <div class="gst">
+              <span> GST(17%)</span>
+              <div class="price2">
+                  {{gst| currency:"":""}}
+              </div>
+          </div>
+          <div class="totaldue">
+              <span>Total Due</span>
+              <div class="price3">
+                  {{total| currency:"":""}}
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="orderButton" (click)="sendVariables()">
+      <a >
+          <button class="finalizeBtn">
+              Finalize Order
+          </button>
+      </a>
+
+  </div>
+</section>
+
+
+
+<!-- <a [routerLink]="['/point-of-sale',{
+  outlets:{'pos':['payment']}
+}]">
+  <button > Payments Button </button>
+</a> -->
+

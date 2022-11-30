@@ -1,0 +1,183 @@
+*{
+    font-size: 16px;
+}
+/* brand name */
+h1{
+    color:#fff;
+    font-size: 1.5rem;
+
+}
+.navbar-brand{
+    width:10%;
+}
+/* styling of navbar */
+.navbar{
+    background: rgb(128, 128, 128);
+    /* background: linear-gradient(45deg, rgba(247,155,102,1) 5%, rgba(245,117,100,1) 46%, rgba(241,161,96,1) 99%); */
+        border-bottom: 2px solid #fff;
+        /* box-shadow: -1px 8px 17px 0px rgba(189,186,186,0.75);
+    -webkit-box-shadow: -1px 8px 17px 0px rgba(189,186,186,0.75);
+    -moz-box-shadow: -1px 8px 17px 0px rgba(189,186,186,0.75); */
+    color:#fff;
+
+}
+.nav-item a{
+    color:#fff;
+}
+.dropdown-menu a{
+    color:#000;
+}
+.navbar .fa-bars-staggered{
+    color:#fff;
+    font-size: 1.5rem;
+}
+
+
+.navbar-nav{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    align-items: center !important;
+    justify-content: space-around !important;
+}
+
+
+/* styling of cashier and bars staggered  */
+.end{
+    margin-left:50px;
+    display:flex;
+    
+}
+.cashier{
+    padding-right:20px;
+    
+}
+
+.btn{
+    background-color: rgb(209, 209, 209);
+    padding: 8px 35px;
+}
+
+
+.cover-table{
+
+    background-color: #fff;
+    border-radius: 4px;
+    transition: all ease .25s;
+    /* box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgb(234, 121, 121); */
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: transform 0.5s;
+    
+}
+.cover-table:hover {
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+    inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+    -0.5px -0.5px 0px rgba(255,255,255,1),
+    0.5px 0.5px 0px  rgba(0,0,0,0.15),
+    0px 12px 10px -10px rgba(0,0,0,0.5);
+    border: 1px solid rgba(0,0,0,0.1);
+    transform: translateX(2px);
+    color: rgb(247,102,102);
+  
+}
+input::placeholder{
+    color:rgb(247,102,102);
+}
+
+
+@media only screen and (max-width: 992px) {
+    .btn1, .btn2{
+        width: 50vw;
+    padding: 8px 35px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }  
+    .end{
+        margin-top:10px;
+        align-items: center;
+        justify-content: center;
+    } 
+    .cover-table{
+        margin-top:10px;
+        
+    }
+  }
+.navbar button .navbar-toggler{
+    color:#fff;
+    border:1px solid #fff !important;
+  }
+.navbar span .nabar-toggler-icon{
+    color:#fff !important;
+
+}
+
+
+
+/* ******************************************************************************************************************** */
+
+
+/* styling in header bars staggered canvas */
+
+
+/* offCanvas Styling */
+.offcanvas-title{
+    color:rgb(247,102,102);
+    font-weight: bold;
+}
+
+/* offcanvas lists styling */
+/* Sidebar */
+.sidebar li{
+    display: block;
+
+    line-height: 40px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    transition: .5s;
+    border-left:6px solid #fff;
+
+}
+.sidebar li:first-child{
+    margin-top: 10px;
+}
+.sidebar li p{
+    color:white;
+    font-size: 21px;
+
+}
+.sidebar li i{
+    margin-right: 16px;
+    font-size: 18px;
+    color:rgb(247,102,102);
+
+}
+.sidebar li a{
+    text-decoration: none;
+    color:rgb(247,102,102);
+
+}
+.sidebar li:hover{
+        background-color: rgba(234, 234, 234, 0.549);
+        border-left:6px solid rgb(247,102,102);
+}
+.sidebar li i:hover{
+  
+    color:rgb(247,102,102);
+}
+.sidebar li i a:hover{
+    color:rgb(247,102,102);
+  }
+.sidebar li.active{
+    background-color: rgba(234, 234, 234, 0.549);
+    border-left:6px solid rgb(247,102,102);
+}
+/* bars staggered */
+.sidebartoggle{
+    background: transparent;
+    border:none;
+}
+

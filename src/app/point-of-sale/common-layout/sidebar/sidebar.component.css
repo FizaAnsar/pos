@@ -1,0 +1,92 @@
+.searchmenu{
+    background: #fff;
+    border:1px solid rgb(135, 135, 135);
+    padding:5px;
+    margin-top: 10px;
+}
+.order_Details{
+    font-size: small;
+    font-weight: bold;
+}
+
+.scrollable{
+    /* max-height:400px; */
+   height:400px;
+    overflow-x: hidden;
+    overflow-y: scroll!important;
+    border:1px solid rgb(135, 135, 135);
+    background: #fff;
+}
+
+.qty{
+    margin:0 12px;
+}
+.order-name{
+    margin-right:30px;
+}
+.order-acordian, button{
+    background: transparent;
+    border:none;
+}
+.order-acordian,.fa-solid,.fa-regular{
+    font-size: 1.5rem;
+}
+.modifiersImg{
+    width:50px;
+    height:35px;
+    /* background: rgb(224, 124, 124); */
+}
+.bill{
+  
+    border:1px solid rgb(135, 135, 135);
+    background: #fff;
+    padding:14px;
+}
+.price1, .price2,.price3{
+    font-size: 25px;
+}
+.price3{
+    
+    color: rgb(68, 68, 68);
+    font-weight: bold;
+}
+.inputs{
+    display: grid;
+    grid-template-columns: 40% 30% 30%;
+    /* background: #000; */
+}
+.inputs div{
+    /* border:5px solid red; */
+    margin:5px;
+}
+.menuItem{
+    width:100%;
+}
+.code{
+    width:100%;
+}
+.menuqty{
+    width:100%;
+
+}
+/* .mat-form-field-infix {
+    padding: 0 !important;
+   border-top:none;
+}
+.menuItem2{
+    border: 2px solid black !important;
+   
+
+} */
+.finalizeBtn{
+    background: rgb(179, 150, 23);
+    color:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    padding: 12px;;
+}
+a{
+    text-decoration: none;;
+}

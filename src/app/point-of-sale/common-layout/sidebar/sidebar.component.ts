@@ -61,6 +61,7 @@ export class SidebarComponent implements OnInit {
     this.api.receiveOrderMenu().subscribe(orderDetail => {
       // console.log("In SideBars", orderDetail)
       this.addProductToCart(orderDetail)
+    
     })
     // this.order()
     this.initForm()
@@ -69,67 +70,16 @@ export class SidebarComponent implements OnInit {
 
 
   addProductToCart(cart) {
-    // let menuExits = false
-    // for (let i in this.cartItems) {
-    //   if (this.cartItems[i].menuId === cart.itemId) {
-    //     this.modifiers.unshift({
-    //       modifierId: cart[i].modifierId,
-    //       modifierName: cart[i].modifierName,
-    //       modifierPrice: cart[i].modifierPrice,
-    //       modifierQuantity: 1,
-    //     })
-       
-      // }
-      // if (this.cartItems[i].menuId === cart.itemId) {
-      //   if (this.cartItems[i].modifierId != cart[0].modifierId) {
-      //     console.log("stoppppppppppppppppppp")
-      //     this.modifiers.unshift({
-      //       modifierId: cart[i].modifierId,
-      //       modifierName: cart[i].modifierName,
-      //       modifierPrice: cart[i].modifierPrice,
-      //       modifierQuantity: 1,
-      //     })
 
-      //   }
-      // }
-      // menuExits = true;
-
-    // }
-    // console.log(this.cartItems, "outside of for statement ");
-    // console.log(this.modifiers, "outside of for statement MODIFIERS");
-
-    // if (!menuExits) {
-
-    //   for (let i = 0; i <= this.cartItems.length; i++) {
-    //     this.cartItems.unshift({
-    //       menuId: cart.itemId,
-    //       menuName: cart.itemName,
-    //       menuQty: cart.itemQuantity + 1,
-    //       menuPrice: cart.itemPrice,
-
-
-    //     })
-      // }
-    // }
-    // console.log(this.cartItems, "outside of for statement ");
-    // this.cartTotals()
+   this.allModifiers = cart
     console.log("All Menus",this.allmenus)
     console.log("cart with modifier",cart)
-    // console.log("thisdcsb", this.allmenus[i].menuId );
-    console.log(cart[0].itemId)
-    let menuwithModifier =[]
-    for(let i=0; i<=this.allmenus.length; i++){
-      if(this.allmenus[i].menuId === cart[0].itemId){
-       menuwithModifier.unshift({
-          modifierId:cart[0].modifierId,
-          modifierName:cart[0].modifierName,
-          modifierPrice:cart[0].modifierPrice
-        })
-      }
-   
-      console.log("After adding Modifiers in it",menuwithModifier)
-    }
-    
+    this.allmenus.push(...cart)
+    console.log("menu and modifier",this.allmenus)
+    // this.allmenus.push(this.allModifiers)
+
+    // console.log("cart and menu together", this.allModifiers)
+  
   }
   cartTotals() {
     // let cart_Total = 0;
@@ -331,4 +281,24 @@ export class SidebarComponent implements OnInit {
   }
 
   /////Search Functionality end////////////////////////////
+  takeway(){
+    this.router.navigate(['/point-of-sale', {
+      outlets: { 'pos': ['takeaways'] }
+    }])
+  }
+  dinein(){
+    this.router.navigate(['/point-of-sale', {
+      outlets: { 'pos': ['dineins'] }
+    }])
+  }
+  delivery(){
+    this.router.navigate(['/point-of-sale', {
+      outlets: { 'pos': ['deliveries'] }
+    }])
+  }
+  reserve(){
+    this.router.navigate(['/point-of-sale', {
+      outlets: { 'pos': ['reserved'] }
+    }])
+  }
 }

@@ -124,7 +124,7 @@
     border-radius: 5px;
     cursor:pointer;
 }.paymentMethod{
-    width:50%;
+    width:22%;
 }
 .btnInvoice,.finalize,.cash,.cards{
     height:50px;
@@ -161,4 +161,15 @@ height:40px;
     .menuText{
         padding-left:0;
     }
+}
+.backBtn{
+  height: 38px;
+  width: 80px;
+  line-height: 38px;
+  text-align: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin:8px; 
+  border-radius: 5px;
+  cursor:pointer;
+  border:none;
 }

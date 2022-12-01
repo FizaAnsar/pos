@@ -79,7 +79,7 @@ export class DashboardComponent implements OnInit {
     // const entries = Object.entries(this.modifiersWithItems);
     // console.log("entriesssssssssssssssssssssss",entries);
 
-    console.log("Modifiers ", this.modifiers)
+    // console.log("Modifiers ", this.modifiers)
     // this.selectedMenu = menu;
     // console.log("selected Menu its an individual objects", menu)
     // this.modifiers = this.selectedMenu.itemModifiers
@@ -120,103 +120,45 @@ export class DashboardComponent implements OnInit {
 
   }
   selectedModifiers(data){
-    console.log(data,"mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-      this.modifiersWithItemsObject = {
-      ...this.selectedMenu,
-      ...data
+    let modifierExist = false;
+    this.selectedModifier=[]
+    for (let i in this.selectedModifier) {
+      if (this.selectedModifier[i].modifierId === data.modifierId) {
+        this.selectedModifier[i].modifierQuantity++;
+        modifierExist = true;
+
+
+      }
     }
-    console.log("xfuhioj",this.modifiersWithItemsObject)
+    if(!modifierExist){
+      this.selectedModifier.unshift({
+      modifierId: data.modifierId,
+      modifierName: data.modifierName,
+      modifierPrice: data.modifierPrice,
+      modifierQuantity: 1
+    })
+    }
+
+    // console.log("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm", this.selectedModifier);
+
+    //   this.modifiersWithItemsObject = {
+    //   ...this.selectedMenu,
+    //   ...this.selectedModifier
+    // }
+    this.selectedMenusArray.unshift(...this.selectedModifier)
+    console.log("hloooooooooooooooooo",this.selectedMenusArray)
+    // console.log("array of menu and modifier",this.modifiersWithItemsObject)
    
       let ArrayofMM=[]
     ArrayofMM.push(this.modifiersWithItemsObject)
     this.modifiersWithItemsArray = ArrayofMM
-    console.log("wanna convert object to array",  this.modifiersWithItemsArray)
-     this.api.sendOrderDetail(this.modifiersWithItemsArray)
-
-
-
+    // console.log("wanna convert object to array",  this.modifiersWithItemsArray)
+    //  this.api.sendOrderDetail(this.modifiersWithItemsArray) 
+    // this.api.sendOrderDetail(this.selectedModifier)
 
   }
 
-  // sendSelectedModifiers(data) {
-
-
-  //   data.selected = true;
-   
-
-  //   this.selectedModifier = []
-  //   this.selectedModifier.unshift({
-  //     modifierId: data.modifierId,
-  //     modifierName: data.modifierName,
-  //     modifierPrice: data.modifierPrice,
-  //     modifierQuantity: 1
-  //   })
-
-   
-
-  //   this.modifiersWithItemsObject = {
-  //     ...this.selectedMenu,
-  //     ...this.selectedModifier
-  //   }
-    // console.log("wanna try to add menu Id", this.modifiersWithItemsObject)
-    // this.api.sendOrderDetail(this.modifiersWithItemsObject)
-    // let ArrayofMM=[]
- 
-    // ArrayofMM.push(this.modifiersWithItemsObject)
   
-    // this.modifiersWithItemsArray = ArrayofMM
-  
-
-    // console.log("wanna convert object to array",  this.modifiersWithItemsArray)
-
-
-
-
-    // for (let i = 0; i <=  this.modifiersWithItemsArray.length; i++) {
-      // if (this.modifiersWithItemsArray[i].itemId === this.selectedMenu.itemId) {
-        // this.orders = {}
-        // console.log("heloooo00000000000")
-        // this line is used for finding last Index Array
-        // let lastIndexArray;
-        // lastIndexArray =  this.modifiersWithItemsArray[ this.modifiersWithItemsArray.length - 1]
-        // console.log("Find Last Index",lastIndexArray)
-        // this.orders = lastIndexArray;
-        // console.log("plzzzzzzzzzzzzzzzzzzzzzzzzz",this.modifiersWithItemsArray.splice(0,this.modifiersWithItemsArray.length))
-      
-      
-
-      // } 
-      // else {
-      //   console.log("heloooo00000000000")
-      //   while (this.modifiersWithItemsArray.length > 0) {
-      //     console.log("heloooo")
-      //     this.modifiersWithItemsArray.pop();
-      //     console.log(this.modifiersWithItemsArray.pop(),"clear all elements from array")
-      //   }
-      //   if (this.modifiersWithItemsArray[i].itemId != this.selectedMenu.itemId) {
-      //     console.log("heloooo00000000000")
-      //     this.orders = {}
-      //     let lastIndexArray;
-      //     lastIndexArray =  this.modifiersWithItemsArray[this.modifiersWithItemsArray.length - 1]
-      //     this.orders = lastIndexArray;
-      //   }
-      // }
-     
-      // console.log("order order", this.orders)
-      // this.modifiersWithItemsArray.splice(0,this.modifiersWithItemsArray.length)
-      // console.log("plzzzzzzzzzzzzzzzzzzzzzzzzz",this.modifiersWithItemsArray.splice(0,this.modifiersWithItemsArray.length))
-      // if (this.modifiersWithItemsArray.length > 0) {
-      //   console.log("plzzzzzzzzzzzzzzzzzzzzzzzzz")
-      //   console.log(this.modifiersWithItemsArray.pop(),"clear all elements from array")
-      // }
-      // break;
-
-
-    // }
-
-
-
-  // } 
   receiveCategories() {
     // get Categories from api service 
     this.api.getCategories().subscribe({

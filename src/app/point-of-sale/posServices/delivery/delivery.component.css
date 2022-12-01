@@ -1,0 +1,24 @@
+.sectionDelivery{
+    background: #fff;
+   
+    margin:15px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:90%;
+    height:100%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}a{
+    text-decoration: none;
+}
+.backBtn{
+    height: 38px;
+    width: 80px;
+    line-height: 38px;
+    text-align: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin:8px; 
+    border-radius: 5px;
+    cursor:pointer;
+    border:none;
+  }

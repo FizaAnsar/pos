@@ -26,7 +26,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalculatorComponent } from './point-of-sale/calculator/calculator.component';
-import { ReserveTablesComponent } from './point-of-sale/reserve-tables/reserve-tables.component'; 
+import { ReserveTablesComponent } from './point-of-sale/reserve-tables/reserve-tables.component';
+import { TakeawayComponent } from './point-of-sale/posServices/takeaway/takeaway.component';
+import { DineinComponent } from './point-of-sale/posServices/dinein/dinein.component';
+import { DeliveryComponent } from './point-of-sale/posServices/delivery/delivery.component';
+import { ReserveComponent } from './point-of-sale/posServices/reserve/reserve.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +42,11 @@ import { ReserveTablesComponent } from './point-of-sale/reserve-tables/reserve-t
     PageNotFoundComponent,
     ModifierPopupComponent,
     CalculatorComponent,
-    ReserveTablesComponent
+    ReserveTablesComponent,
+    TakeawayComponent,
+    DineinComponent,
+    DeliveryComponent,
+    ReserveComponent
   ],
   imports: [
     BrowserModule,

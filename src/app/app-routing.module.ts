@@ -8,6 +8,10 @@ import { DashboardComponent } from './point-of-sale/dashboard/dashboard.componen
 import { PosComponent } from './point-of-sale/common-layout/pos/pos.component';
 import { CalculatorComponent } from './point-of-sale/calculator/calculator.component';
 import { ReserveTablesComponent } from './point-of-sale/reserve-tables/reserve-tables.component';
+import { ReserveComponent } from './point-of-sale/posServices/reserve/reserve.component';
+import { TakeawayComponent } from './point-of-sale/posServices/takeaway/takeaway.component';
+import { DineinComponent } from './point-of-sale/posServices/dinein/dinein.component';
+import { DeliveryComponent } from './point-of-sale/posServices/delivery/delivery.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'signin', pathMatch:'full'},
@@ -30,7 +34,11 @@ const routes: Routes = [
   children:[
     {path:"dashboard",component:DashboardComponent,outlet:"pos"},
     {path:"payment",component:PaymentsComponent,outlet:"pos"},
-    {path:"reserve",component:ReserveTablesComponent,outlet:"pos"},
+    {path:"reserved",component:ReserveComponent,outlet:"pos"},
+    {path:"takeaways",component:TakeawayComponent,outlet:"pos"},
+    {path:"dineins",component:DineinComponent,outlet:"pos"},
+    {path:"deliveries",component:DeliveryComponent,outlet:"pos"},
+    
   
   ]
 },

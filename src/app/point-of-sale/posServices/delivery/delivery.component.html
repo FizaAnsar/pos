@@ -1,0 +1,112 @@
+<div class="sectionDelivery">
+    <div class="form">
+        <div class="heading">
+            <h1 class="text-center">Delivery</h1>
+        </div>
+        <div class="col-12 m-2">
+            <div class="input-group ">
+                <span class="input-group-text">Cell1*</span>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control"
+                    required>
+            </div>
+        </div>
+
+        <div class="col-12 m-2">
+            <div class="input-group ">
+                <span class="input-group-text">Full Name*</span>
+                <input type="text" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="col-12 m-2">
+            <div class="input-group ">
+                <span class="input-group-text">Cell2</span>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-12 m-2">
+            <div class="input-group ">
+                <span class="input-group-text">Address*</span>
+                <input type="text" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="col-12 m-2 dropdown" ngbDropdown>
+            <div class="input-group ">
+                <a class=" dropdown-toggle input-group-text w-100 just justify-content-between" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="true" ngbDropdownToggle>Age Group*</a>
+
+                <ul class="dropdown-menu w-100" ngbDropdownMenu>
+                    <li><a class="dropdown-item" ngbDropdownItem>16-20</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem>21-25</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem>25-30</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem>31-35</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem>36-40</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem>41-45</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem>46-50</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem>50+</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="col-12 m-2 dropdown" ngbDropdown>
+            <div class="input-group ">
+                <a class=" dropdown-toggle input-group-text w-100 just justify-content-between" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="true" ngbDropdownToggle>Gender*</a>
+
+                <ul class="dropdown-menu w-100" ngbDropdownMenu>
+                    <li><a class="dropdown-item" ngbDropdownItem>Male</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem>Female</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="col-12 m-2">
+            <div class="input-group ">
+                <span class="input-group-text">DOB</span>
+                <input type="text" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="col-12 m-2 dropdown" ngbDropdown>
+            <div class="input-group ">
+                <a class=" dropdown-toggle input-group-text w-100 just justify-content-between" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="true" ngbDropdownToggle>Delivery Services</a>
+
+                <ul class="dropdown-menu w-100" ngbDropdownMenu>
+                    <li><a class="dropdown-item" ngbDropdownItem>...</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem>...</a></li>
+                    <li><a class="dropdown-item" ngbDropdownItem>...</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="col-12 m-2">
+            <div class="input-group ">
+                <span class="input-group-text">Delivey Charges</span>
+                <input type="text" class="form-control" required>
+            </div>
+        </div>
+        <div class="d-flex align-items-center justify-content-between p-3">
+            <div class="done">
+                <button class="backBtn bg-success text-light">Done</button>
+            </div>
+            <div class="back">
+                <a [routerLink]= "['/point-of-sale',{
+                    outlets:{'pos':['payment']}  
+                  }]">
+                    <button class="backBtn bg-primary text-light">Back</button>
+                </a>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>

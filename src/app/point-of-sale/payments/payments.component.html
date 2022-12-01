@@ -196,7 +196,16 @@
         <hr>
     </div>
 </div>
-<div class="invoices d-flex justify-content-around">
+<div class="invoices d-flex justify-content-around align-items-center">
+    <div class="">
+        <a [routerLink]= "['/point-of-sale',{
+            outlets:{'pos':['dashboard']}  
+          }]">
+        <button class="backBtn bg-primary text-light" >
+            Back
+        </button>
+    </a>
+    </div>
     <div class="btnInvoice maxn">
         INVOICE
     </div>
